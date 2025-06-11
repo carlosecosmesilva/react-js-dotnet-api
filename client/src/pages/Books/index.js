@@ -7,28 +7,40 @@ import logoImage from "../../assets/logo.svg";
 
 export default function Books() {
 	const [books, setBooks] = useState([]);
+	const [page, setPage] = useState(1);
 	const accessToken = localStorage.getItem("accessToken");
 	const userName = localStorage.getItem("userName");
 	const language = navigator.language || navigator.userLanguage;
+	const authorization = React.useMemo(
+		() => ({
+			Authorization: `Bearer ${accessToken}`,
+		}),
+		[accessToken]
+	);
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		Api.get("api/books/v1/asc/20/1", {
-			headers: {
-				Authorization: `Bearer ${accessToken}`,
-			},
-		}).then((response) => {
-			setBooks(response.data.list);
-		});
-	}, [accessToken]);
+		fetchMoreBooks();
+		// eslint-disable-next-line
+	}, [accessToken, authorization]);
+
+	async function fetchMoreBooks() {
+		try {
+			const response = await Api.get(
+				`api/books/v1/asc/5/${page}`,
+				authorization
+			);
+			setBooks([...books, ...response.data.list]);
+			setPage(page + 1);
+		} catch (error) {
+			console.error("Error fetching more books:", error);
+			alert("Error fetching more books. Please try again.");
+		}
+	}
 
 	async function deleteBook(id) {
 		try {
-			await Api.delete(`api/books/v1/${id}`, {
-				headers: {
-					Authorization: `Bearer ${accessToken}`,
-				},
-			});
+			await Api.delete(`api/books/v1/${id}`, authorization);
 			setBooks(books.filter((book) => book.id !== id));
 		} catch (error) {
 			console.error("Error deleting book:", error);
@@ -38,11 +50,7 @@ export default function Books() {
 
 	async function logout() {
 		try {
-			await Api.get("api/auth/v1/revoke", null, {
-				headers: {
-					Authorization: `Bearer ${accessToken}`,
-				},
-			});
+			await Api.get("api/auth/v1/revoke", null, authorization);
 			localStorage.clear();
 			navigate.push("/");
 		} catch (error) {
@@ -108,6 +116,9 @@ export default function Books() {
 					</li>
 				))}
 			</ul>
+			<button className="button" onClick={fetchMoreBooks} type="button">
+				Load More
+			</button>
 		</div>
 	);
 }
