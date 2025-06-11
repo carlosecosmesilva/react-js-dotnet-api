@@ -9,6 +9,7 @@ export default function Books() {
 	const [books, setBooks] = useState([]);
 	const accessToken = localStorage.getItem("accessToken");
 	const userName = localStorage.getItem("userName");
+	const language = navigator.language || navigator.userLanguage;
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -50,7 +51,14 @@ export default function Books() {
 		}
 	}
 
-	const language = navigator.language || navigator.userLanguage;
+	async function editBook(id) {
+		try {
+			navigate(`/book/new/${id}`);
+		} catch (error) {
+			console.error("Error navigating to edit book:", error);
+			alert("Error navigating to edit book. Please try again.");
+		}
+	}
 
 	return (
 		<div className="book-container">
@@ -59,7 +67,7 @@ export default function Books() {
 				<span>
 					Welcome, <strong>{userName.toLowerCase()}</strong>
 				</span>
-				<Link className="button" to="/book/new">
+				<Link className="button" to="/book/new/0">
 					Add New Book
 				</Link>
 				<button onClick={logout} type="button">
@@ -88,7 +96,7 @@ export default function Books() {
 						<strong>Release Date:</strong>
 						<p>{new Date(book.releaseDate).toLocaleDateString()}</p>
 
-						<button type="button">
+						<button onClick={() => editBook(book.id)} type="button">
 							<FiEdit size={20} color="#a8a8b3" />
 						</button>
 						<button
