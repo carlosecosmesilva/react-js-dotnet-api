@@ -1,0 +1,46 @@
+h1 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 70rem;
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 2rem;
+    background: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-container section.login-form {
+    width: 100%;
+    max-width: 25rem;
+    margin-right: 2rem;
+}
+
+.login-container section.login-form img {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.login-container section.login-form form {
+    margin-top: 2rem;
+}
+
+.login-container section.login-form form h1 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
