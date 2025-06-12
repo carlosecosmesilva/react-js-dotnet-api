@@ -1,0 +1,21 @@
+name: .NET Server CI
+
+on:
+    push:
+        paths:
+            - "server/**"
+    pull_request:
+        paths:
+            - "server/**"
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-dotnet@v4
+              with:
+                  dotnet-version: "8.0.x"
+            - run: dotnet restore server/RestWithASPNETErudio/RestWithASPNETErudio.sln
+            - run: dotnet build server/RestWithASPNETErudio/RestWithASPNETErudio.sln --configuration Release --no-restore
+            - run: dotnet test server/RestWithASPNETErudio/RestWithASPNETErudio.sln --no-build --verbosity normal
