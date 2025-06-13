@@ -88,7 +88,8 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c => {
+builder.Services.AddSwaggerGen(c =>
+{
     c.SwaggerDoc(appVersion,
         new OpenApiInfo
         {
@@ -106,7 +107,7 @@ builder.Services.AddSwaggerGen(c => {
 var connection = builder.Configuration["MySQLConnection:MySQLConnectionString"];
 builder.Services.AddDbContext<MySQLContext>(options => options.UseMySql(
     connection,
-    new MySqlServerVersion(new Version(8, 0,29)))
+    new MySqlServerVersion(new Version(8, 0, 29)))
 );
 
 if (builder.Environment.IsDevelopment())
@@ -160,7 +161,7 @@ app.UseCors();
 
 app.UseSwagger();
 
-app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", $"{appName} - {appVersion}");});
+app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", $"{appName} - {appVersion}"); });
 
 var option = new RewriteOptions();
 option.AddRedirect("^$", "swagger");
@@ -181,7 +182,7 @@ void MigrateDatabase(string? connection)
         var evolveConnection = new MySqlConnection(connection);
         var evolve = new Evolve(evolveConnection, Log.Information)
         {
-            Locations = new List<string> { "db/migrations", "db/dataset" },
+            Locations = new List<string> { "RestWithASPNETErudio/db/migrations", "RestWithASPNETErudio/db/dataset" },
             IsEraseDisabled = true,
         };
         evolve.Migrate();

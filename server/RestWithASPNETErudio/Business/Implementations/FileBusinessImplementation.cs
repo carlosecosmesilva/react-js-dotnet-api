@@ -12,11 +12,11 @@ namespace RestWithASPNETErudio.Business.Implementations
     {
         private readonly string _basePath;
         private readonly IHttpContextAccessor _context;
-        
+
         public FileBusinessImplementation(IHttpContextAccessor context)
         {
             _context = context;
-            _basePath = Directory.GetCurrentDirectory() + "\\UploadDir\\";
+            _basePath = Path.Combine(Directory.GetCurrentDirectory(), "RestWithASPNETErudio", "UploadDir");
         }
 
         public byte[] GetFile(string filename)

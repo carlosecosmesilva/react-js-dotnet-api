@@ -102,7 +102,7 @@ Edit the connection string in [`appsettings.json`](server/RestWithASPNETErudio/R
 
 ```json
 "MySQLConnection": {
-  "MySQLConnectionString": "Server=localhost;DataBase=react_net_database;Uid=root;Pwd=123456"
+  "MySQLConnectionString": "Server=localhost;DataBase=mydatabase;Uid=root;Pwd=123456"
 }
 ```
 

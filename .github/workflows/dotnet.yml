@@ -16,6 +16,6 @@ jobs:
             - uses: actions/setup-dotnet@v4
               with:
                   dotnet-version: "8.0.x"
-            - run: dotnet restore server/RestWithASPNETErudio/RestWithASPNETErudio.sln
-            - run: dotnet build server/RestWithASPNETErudio/RestWithASPNETErudio.sln --configuration Release --no-restore
-            - run: dotnet test server/RestWithASPNETErudio/RestWithASPNETErudio.sln --no-build --verbosity normal
+            - run: dotnet restore server/RestWithASPNETErudio.sln
+            - run: dotnet build server/RestWithASPNETErudio.sln --configuration Release --no-restore
+            - run: dotnet test server/RestWithASPNETErudio.sln --verbosity normal

@@ -1,0 +1,34 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestWithASPNETErudio.Tests", "RestWithASPNETErudio.Tests\RestWithASPNETErudio.Tests.csproj", "{3574F86B-5A84-46A9-9ADA-DDB60B135865}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestWithASPNETErudio", "RestWithASPNETErudio\RestWithASPNETErudio.csproj", "{BBE9A0FC-6BF6-46F8-A01B-62AEE6F95499}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89C78936-9AF9-3F19-2FA6-49184DD6527B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89C78936-9AF9-3F19-2FA6-49184DD6527B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89C78936-9AF9-3F19-2FA6-49184DD6527B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89C78936-9AF9-3F19-2FA6-49184DD6527B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3574F86B-5A84-46A9-9ADA-DDB60B135865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3574F86B-5A84-46A9-9ADA-DDB60B135865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3574F86B-5A84-46A9-9ADA-DDB60B135865}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3574F86B-5A84-46A9-9ADA-DDB60B135865}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBE9A0FC-6BF6-46F8-A01B-62AEE6F95499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBE9A0FC-6BF6-46F8-A01B-62AEE6F95499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBE9A0FC-6BF6-46F8-A01B-62AEE6F95499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBE9A0FC-6BF6-46F8-A01B-62AEE6F95499}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC20FA41-2775-4911-9F1A-1A2FF40D87F2}
+	EndGlobalSection
+EndGlobal
